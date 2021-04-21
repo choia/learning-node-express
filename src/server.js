@@ -2,6 +2,7 @@ import express from 'express';
 import { routes } from './routes';
 
 const app = express();
+app.use(express.urlencoded({extended: true}));
 
 routes.forEach(route => {
   app[route.method](route.path, route.handler);
